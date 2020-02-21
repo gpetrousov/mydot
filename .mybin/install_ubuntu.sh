@@ -3,21 +3,38 @@
 
 # This script will install mydot files on a fresh Ubuntu system.
 
+# Clone the mydot project
+git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+
+function mydot {
+		/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME $@
+}
+
 # Requirements
 sudo apt-get update && sudo apt-get -y install\
 		neovim\
 		git\
 
-# Create mydot command
-alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'
 
-# Clone the mydot project
-git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+# Add the alias to your .bashrc
+echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
+echo "alias vim='nvim'" >> .bashrc
 
 # Checkout the actual content from the bare repository to your $HOME
-`mydot checkout`
+# Create a backup of existing config if necessary
+mydot checkout
+if [ $? = 0 ]; then
+		echo "Checked out config.";
+else
+		echo "Backing up pre-existing dot files."
+		mkdir .config-backup
+		mydot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+fi;
+mydot checkout
+
+# Don't show untracked items
+mydot config status.showUntrackedFiles no
 
 # Install fresh neovim plugins using Plug
-alias vim='nvim'
-vim -E .config/nvim/plug.vim +PlugInstall +qall
+nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
 
