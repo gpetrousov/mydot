@@ -4,7 +4,7 @@
 # This script will install mydot files on a fresh Ubuntu system.
 
 # Requirements
-apt-get update && apt-get -y install\
+sudo apt-get update && sudo apt-get -y install\
 		neovim\
 		git\
 
