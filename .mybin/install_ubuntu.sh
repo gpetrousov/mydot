@@ -38,3 +38,8 @@ mydot config status.showUntrackedFiles no
 # Install fresh neovim plugins using Plug
 nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
 
+# Install and configure tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+set TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/tpm
+$HOME/.tmux/plugins/tpm/bin/install_plugins
+
