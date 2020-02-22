@@ -1,6 +1,5 @@
 # mydot - a personal dotfile collection
 
-=======================================
 
 ### Inspiration
 
@@ -9,7 +8,10 @@ https://news.ycombinator.com/item?id=11070797
 
 ## Installing
 
-#### On a new Ubuntu system
+- .mybin directory contains OS specific bootstrap scripts.
+- Just feed the bootstrap script into bash and witness magic
+
+#### Example: On a new Ubuntu system
 
 0. Install curl and git
 1. Generate a SSH key-pair for Github access
