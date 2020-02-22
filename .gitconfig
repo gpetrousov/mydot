@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[core]
+	editor = vim
+
+[alias]
+	gs="git status"
+	gd="git diff"
+	ga="git add"
+
+# Specific config for personal github repos
+[includeIf "gitdir:~/github/"]
+	path = ~/github/.gitconfig
+
+# Maxeda git config
+[includeIf "gitdir:~/maxeda/"]
+	path = ~/maxeda/.gitconfig
+
