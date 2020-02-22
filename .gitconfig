@@ -3,9 +3,9 @@
 	editor = vim
 
 [alias]
-	gs="git status"
-	gd="git diff"
-	ga="git add"
+	s = status
+	d = diff
+	a = add
 
 # Specific config for personal github repos
 [includeIf "gitdir:~/github/"]
