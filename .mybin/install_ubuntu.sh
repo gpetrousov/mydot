@@ -15,7 +15,10 @@ sudo apt-get update && sudo apt-get -y install\
 		neovim\
 		git\
 		tmux\
+		zsh\
 
+# Upgrade to oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Add the alias to your .bashrc
 echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
