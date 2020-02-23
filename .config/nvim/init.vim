@@ -11,6 +11,7 @@ set ignorecase
 set smartcase
 set scrolloff=4 " Keep 4 lines below and above the cursor
 set updatetime=300
+set background=dark
 
 
 " netrw configs
