@@ -11,6 +11,7 @@ Plug 'hashivim/vim-terraform' " Tab completion and syntax highlight for Terrafor
 Plug 'RRethy/vim-illuminate' " Underlines word under cursor and all of its occurences
 Plug 'lepture/vim-jinja' " Syntax highlight for Jinja templates
 Plug 'morhetz/gruvbox' " Theme for vim https://github.com/morhetz/gruvbox
+Plug 'joshdick/onedark.vim' " Theme for vim https://github.com/joshdick/onedark.vim'
 Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
 
 " List ends here. Plugins become visible to Vim after this call.
