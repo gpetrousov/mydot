@@ -16,5 +16,8 @@ alias diff="colordiff"
 # Tracking for mydotfiles
 alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME' >> $HOME/.zshrc
 
+# Git status
+alias gs='git status'
+
 # ==================================== #
 
