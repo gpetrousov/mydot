@@ -5,6 +5,7 @@
 
 https://www.atlassian.com/git/tutorials/dotfiles
 https://news.ycombinator.com/item?id=11070797
+https://itnext.io/setup-git-with-multiple-configs-9b4111d6928c
 
 ## Installing
 
