@@ -17,4 +17,11 @@ export LC_ALL=en_US.UTF-8
 # Export GOPATH
 export GOPATH=$HOME/go
 
+# Remove thread safety
+# http://sealiesoftware.com/blog/archive/2017/6/5/Objective-C_and_fork_in_macOS_1013.html
+# Some scripting languages use fork() without exec() as a substitute for threads.
+# Python's multiprocessing module is one example. The OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# environment variable described above may temporarily get your scripts running again.
+#OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # ==================================== #
