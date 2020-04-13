@@ -2,8 +2,6 @@
 # Exports
 # ==================================== #
 
-export HOMEBREW_GITHUB_API_TOKEN=1cf81cac8be33d1727af36a67c506ac5842f595f
-
 # This fixes the warning I got from pip3 when installing awscli
 export PATH=$PATH:$HOME/Library/Python/3.7/bin:$HOME/Library/Python/2.7/bin
 
