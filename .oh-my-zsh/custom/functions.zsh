@@ -24,5 +24,10 @@ whichfunc() {
         type -a $1
 }
 
+# Squash commits on feature branch. Always forget that.
+git_squash() {
+		git rebase -i master
+}
+
 # ==================================== #
 
