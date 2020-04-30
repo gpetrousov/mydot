@@ -3,13 +3,20 @@
 
 ### Inspiration
 
-- https://www.atlassian.com/git/tutorials/dotfiles
+A list of non-voluntary contributors.
+
 - https://news.ycombinator.com/item?id=11070797
+A simple way to export your dotfiles safely
+
+- https://www.atlassian.com/git/tutorials/dotfiles
+An expanded tutorial for the above method
+
 - https://itnext.io/setup-git-with-multiple-configs-9b4111d6928c
+A really cool solution to maintain multiple .gitconfig files
 
 ## Installing
 
-- .mybin directory contains OS specific bootstrap scripts.
+- .mybin directory contains OS specific bootstrap scripts
 - Just feed the bootstrap script into bash and witness magic
 
 #### Example: On a new Ubuntu system
@@ -20,6 +27,6 @@
 3. Run
 
 ```
-curl -Lks <github URL> | /bin/bash
+curl -Lks <github URL/mybin/install_X.sh> | /bin/bash
 ```
 
