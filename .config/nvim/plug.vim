@@ -13,6 +13,7 @@ Plug 'lepture/vim-jinja' " Syntax highlight for Jinja templates
 Plug 'morhetz/gruvbox' " Theme for vim https://github.com/morhetz/gruvbox
 Plug 'joshdick/onedark.vim' " Theme for vim https://github.com/joshdick/onedark.vim'
 Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
+Plug 'tmux-plugins/vim-tmux' " A tmux.conf multitool https://github.com/tmux-plugins/vim-tmux
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
