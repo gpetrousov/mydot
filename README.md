@@ -14,6 +14,9 @@ An expanded tutorial for the above method
 - https://itnext.io/setup-git-with-multiple-configs-9b4111d6928c
 A really cool solution to maintain multiple .gitconfig files
 
+- https://zserge.com/posts/tmux/
+A faster way of switching between panes and windows
+
 ## Installing
 
 - .mybin directory contains OS specific bootstrap scripts
