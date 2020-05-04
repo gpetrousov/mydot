@@ -15,3 +15,7 @@
 [includeIf "gitdir:~/maxeda/"]
 	path = ~/maxeda/.gitconfig
 
+# Mirabeau git config
+[includeIf "gitdir:~/mirabeau/"]
+	path = ~/mirabeau/.gitconfig
+
