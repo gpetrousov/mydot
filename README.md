@@ -17,6 +17,9 @@ A really cool solution to maintain multiple .gitconfig files
 - https://zserge.com/posts/tmux/
 A faster way of switching between panes and windows
 
+- https://gist.github.com/william8th/faf23d311fc842be698a1d80737d9631
+Opens new windows and panes in current path
+
 ## Installing
 
 - .mybin directory contains OS specific bootstrap scripts
