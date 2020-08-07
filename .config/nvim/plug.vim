@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible' " Commong agreements for vim
+Plug 'tpope/vim-commentary' " Comment stuff out. Use gcc to comment/uncomment out a line.
 Plug 'airblade/vim-gitgutter' " Shows git diff as you edit
 Plug 'mileszs/ack.vim' " Vim plugin for the Perl module / CLI script 'ack'
 Plug 'vim-airline/vim-airline' " When the plugin is correctly loaded, Vim will draw a nice statusline at the bottom of each window.
