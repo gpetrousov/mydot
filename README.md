@@ -1,5 +1,28 @@
 # mydot - a personal dotfile collection
 
+Export your dotfiles safely with just 4 commands.
+
+```
+git init --bare $HOME/.mydot
+alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'
+mydot config --local status.showUntrackedFiles no
+echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> $HOME/.bashrc
+```
+
+Now you should be able to add and commit the files you want to track.
+
+```
+mydot add $HOME/.vimrc
+mydot commit -m "Added my awesome vimrc config"
+mydot push
+```
+
+
+### File structure
+
+- github: a place to clone github projects
+- .mybin directory contains OS specific bootstrap scripts
+- .mybin: assistive scripts
 
 ### Inspiration
 
@@ -22,7 +45,10 @@ Opens new windows and panes in current path
 
 ## Installing
 
-- .mybin directory contains OS specific bootstrap scripts
+It's a bad practise to import the whole config into your system.
+My suggestion is to try it in a safe environment which you can scrap later, say docker.
+Only keep  the pieces of the config that you might actually find useful.
+
 - Just feed the bootstrap script into bash and witness magic
 
 #### Example: On a new Ubuntu system

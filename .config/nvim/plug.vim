@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible' " Commong agreements for vim
+Plug 'tpope/vim-commentary' " Comment stuff out. Use gcc to comment/uncomment out a line.
 Plug 'airblade/vim-gitgutter' " Shows git diff as you edit
 Plug 'mileszs/ack.vim' " Vim plugin for the Perl module / CLI script 'ack'
 Plug 'vim-airline/vim-airline' " When the plugin is correctly loaded, Vim will draw a nice statusline at the bottom of each window.
@@ -14,6 +15,7 @@ Plug 'morhetz/gruvbox' " Theme for vim https://github.com/morhetz/gruvbox
 Plug 'joshdick/onedark.vim' " Theme for vim https://github.com/joshdick/onedark.vim'
 Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
 Plug 'tmux-plugins/vim-tmux' " A tmux.conf multitool https://github.com/tmux-plugins/vim-tmux
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
