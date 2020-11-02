@@ -7,6 +7,9 @@ export PATH=$PATH:$HOME/Library/Python/3.7/bin:$HOME/Library/Python/2.7/bin
 
 # This includes openvpn binary
 export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7/sbin
+#
+# This includes aws-cli from installation to local path
+export PATH=$PATH:$HOME/aws-cli
 
 # This fixes the errors I got from perl when using the Ack plugin in vim
 export LC_CTYPE=en_US.UTF-8
