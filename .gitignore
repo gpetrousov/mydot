@@ -1,2 +1,3 @@
 .mydot
 $HOME/.oh-my-zsh/custom/private.zsh
+.config/pudb/pudb.cfg
