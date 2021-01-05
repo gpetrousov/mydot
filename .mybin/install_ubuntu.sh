@@ -29,16 +29,19 @@ function enable_debug() {
 	fi
 }
 
-# Clone the mydot project
+# Clone mydot
 function clone_mydot_into_home() {
 	echo "Cloning mydot into $HOME/.mydot"
 	git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
 }
 
 # Add mydot alias to your .bashrc
-function create_mydot_aliases() {
+function setup_mydot_aliases() {
 	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
 	echo "alias vim='nvim'" >> .bashrc
+	source $HOME/.bashrc
+	# Don't show untracked items
+	mydot config status.showUntrackedFiles no
 }
 
 function apply_config_from_upstream() {
@@ -54,8 +57,6 @@ function apply_config_from_upstream() {
 	fi;
 	mydot checkout
 
-	# Don't show untracked items
-	mydot config status.showUntrackedFiles no
 }
 
 # Setup git-dir(repo path) and work-tree(tree path)
@@ -92,35 +93,44 @@ function apply_upstream_tmux_config() {
 ### Main process
 
 clone_mydot_into_home
-create_mydot_aliases
-apply_config_from_upstream
+setup_mydot_aliases
+
+# Create a menu with packages to install.
+# Installation process:
+# 	1. check if package is installed
+# 	2. it if is, take backup of existing config
+# 	3. apply upstream config
+#	git checkout HEAD <filename>
 
 
-
-# Upgrade to oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Change shell to zsh
-chsh -s $(which zsh)
-
-
-
-# Install and configure tpm
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
-$HOME/.tmux/plugins/tpm/bin/install_plugins
-
-# Install fresh neovim plugins using Plug
-nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
-
-echo "#===================COMPLETED=======================#"
-
-
-# Disable DEBUG on exit
-function disable_debug() {
-	if [[ $1 == "DEBUG" ]]
-	then
-		set +x
-		echo "Debug disabled"
-	fi
-}
+#apply_config_from_upstream
+#
+#
+#
+## Upgrade to oh-my-zsh
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+#
+## Change shell to zsh
+#chsh -s $(which zsh)
+#
+#
+#
+## Install and configure tpm
+#git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+#export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
+#$HOME/.tmux/plugins/tpm/bin/install_plugins
+#
+## Install fresh neovim plugins using Plug
+#nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
+#
+#echo "#===================COMPLETED=======================#"
+#
+#
+## Disable DEBUG on exit
+#function disable_debug() {
+#	if [[ $1 == "DEBUG" ]]
+#	then
+#		set +x
+#		echo "Debug disabled"
+#	fi
+#}
