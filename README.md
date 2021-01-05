@@ -62,3 +62,10 @@ Only keep  the pieces of the config that you might actually find useful.
 curl -Lks <github URL/mybin/install_X.sh> | /bin/bash
 ```
 
+#### Debugging
+
+To debug execute the script with the '-x' option.
+
+```
+bash -x install_ubuntu.sh
+```
