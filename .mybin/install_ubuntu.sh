@@ -4,46 +4,39 @@
 # email: petrousov@gmail.com
 
 # This is a bootstrap script for managing mydot.
-# Menu:
-# 1. install packages
-#	1.1 install and configure neovim
-#	1.2 install and configure tmux
-#	1.3 install and configure zsh
-#	1.4 install and configure oh-my-zsh
-# 2. 
-# All options are split up into functions.
-# All options perform a backup of existing confirm before applying new one.
 # Backup config is stored in $BACKUP_CONFIG_DIRECTORY
-
 
 ### Variables
 BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
 
-
 ### Functions
 
 # Enable DEBUG if $1 == "DEBUG"
-function enable_debug() {
-	if [[ $1 == "DEBUG" ]]
-	then
-		echo "Debug enabled"
-		set -x
-	fi
-}
+if [[ $1 == "DEBUG" ]]
+then
+	echo "Debug enabled"
+	set -x
+fi
+
 
 # Clone mydot
 function clone_mydot_into_home() {
-	echo "Cloning mydot into $HOME/.mydot"
-	git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+	if [ ! -d ]
+	then
+		echo "Cloning mydot into $HOME/.mydot"
+		git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+	else
+		echo "mydot already cloned"
+	fi
 }
 
 # Add mydot alias to your .bashrc
 function setup_mydot_aliases() {
 	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
 	echo "alias vim='nvim'" >> .bashrc
-	source $HOME/.bashrc
+	# TODO: make command more slick
 	# Don't show untracked items
-	mydot config status.showUntrackedFiles no
+	/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME config status.showUntrackedFiles no
 }
 
 function backup_and_apply_all_config_from_upstream() {
@@ -114,17 +107,9 @@ function apply_upstream_neovim_config() {
 clone_mydot_into_home
 setup_mydot_aliases
 
-# Create a menu with packages to install.
-# Installation process:
-# 	1. check if package is installed
-# 	2. it if is, take backup of existing config
-# 	3. apply upstream config
-#	git checkout HEAD <filename>
-
-
 select main_menu_choice in "Install packages" "Backup and apply all config from upstream";
 do
-	case $main_menu_choice in;
+	case $main_menu_choice in
 		"1")
 			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh";
 			do
@@ -175,12 +160,10 @@ done
 #
 #echo "#===================COMPLETED=======================#"
 #
-#
-## Disable DEBUG on exit
-#function disable_debug() {
-#	if [[ $1 == "DEBUG" ]]
-#	then
-#		set +x
-#		echo "Debug disabled"
-#	fi
-#}
+
+# Disable DEBUG on exit
+if [[ $1 == "DEBUG" ]]
+then
+	set +x
+	echo "Debug disabled"
+fi
