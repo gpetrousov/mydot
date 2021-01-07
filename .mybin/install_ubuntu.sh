@@ -4,11 +4,13 @@
 # email: petrousov@gmail.com
 
 # This is a bootstrap script for managing mydot.
-# Options:
-#	- install and configure neovim
-#	- install and configure tmux
-#	- install and configure zsh
-#	- install and configure oh-my-zsh
+# Menu:
+# 1. install packages
+#	1.1 install and configure neovim
+#	1.2 install and configure tmux
+#	1.3 install and configure zsh
+#	1.4 install and configure oh-my-zsh
+# 2. 
 # All options are split up into functions.
 # All options perform a backup of existing confirm before applying new one.
 # Backup config is stored in $BACKUP_CONFIG_DIRECTORY
@@ -44,7 +46,7 @@ function setup_mydot_aliases() {
 	mydot config status.showUntrackedFiles no
 }
 
-function apply_config_from_upstream() {
+function backup_and_apply_all_config_from_upstream() {
 	# Checkout the actual content from the bare repository to your $HOME
 	# Create a backup of existing config if necessary
 	mydot checkout
@@ -79,6 +81,12 @@ function install_zsh() {
 	sudo apt-get -y install zsh
 }
 
+# Apply ZSH config from upstream
+function apply_upstream_zsh_config() {
+	zsh_conf_file=mydot status --porcelain | grep zsh | sed s/^...//
+	mydot checkout $zsh_conf_file
+}
+
 # Install TMUX
 function install_tmux() {
 	sudo apt-get -y install tmux
@@ -86,9 +94,20 @@ function install_tmux() {
 
 # Apply TMUX config from upstream
 function apply_upstream_tmux_config() {
-
+	tmux_conf_file=mydot status --porcelain | grep tmux | sed s/^...//
+	mydot checkout $tmux_conf_file
 }
 
+# Install neovim
+function install_neovim() {
+	sudo apt-get -y install neovim
+}
+
+# Apply neovim config from upstream
+function apply_upstream_neovim_config() {
+	neovim_conf_file=mydot status --porcelain | grep neovim | sed s/^...//
+	mydot checkout $neovim_conf_file
+}
 
 ### Main process
 
@@ -103,7 +122,38 @@ setup_mydot_aliases
 #	git checkout HEAD <filename>
 
 
-#apply_config_from_upstream
+select main_menu_choice in "Install packages" "Backup and apply all config from upstream";
+do
+	case $main_menu_choice in;
+		"1")
+			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh";
+			do
+				case $install_package_choice in
+					"1")
+						install_tmux
+						apply_upstream_tmux_config
+						;;
+					"2")
+						install_neovim
+						apply_upstream_neovim_config
+						;;
+					"3")
+						install_zsh
+						apply_upstream_zsh_config
+						;;
+					"4")
+						install_oh_my_zsh
+						;;
+				esac
+			done
+			;;
+		"2")
+			backup_and_apply_all_config_from_upstream
+			;;
+	esac
+done
+
+
 #
 #
 #
