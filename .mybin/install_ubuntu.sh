@@ -107,11 +107,11 @@ function apply_upstream_neovim_config() {
 clone_mydot_into_home
 setup_mydot_aliases
 
-select main_menu_choice in "Install packages" "Backup and apply all config from upstream";
+select main_menu_choice in "Install packages" "Backup and apply all config from upstream" "Quit";
 do
 	case $main_menu_choice in
 		"1")
-			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh";
+			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh" "Quit";
 			do
 				case $install_package_choice in
 					"1")
@@ -129,11 +129,17 @@ do
 					"4")
 						install_oh_my_zsh
 						;;
+					"5")
+						exit 0
+						;;
 				esac
 			done
 			;;
 		"2")
 			backup_and_apply_all_config_from_upstream
+			;;
+		"3")
+			exit 0
 			;;
 	esac
 done
