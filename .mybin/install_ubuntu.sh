@@ -110,35 +110,36 @@ setup_mydot_aliases
 select main_menu_choice in "Install packages" "Backup and apply all config from upstream" "Quit";
 do
 	case $main_menu_choice in
-		"1")
+		"Install packages")
 			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh" "Quit";
 			do
 				case $install_package_choice in
-					"1")
+					"tmux")
 						install_tmux
 						apply_upstream_tmux_config
 						;;
-					"2")
+					"neovim")
 						install_neovim
 						apply_upstream_neovim_config
 						;;
-					"3")
+					"ZSH")
 						install_zsh
 						apply_upstream_zsh_config
 						;;
-					"4")
+					"oh-my-zsh")
 						install_oh_my_zsh
 						;;
-					"5")
+					"Quit")
+						echo "Exiting"
 						exit 0
 						;;
 				esac
 			done
 			;;
-		"2")
+		"Backup and apply all config from upstream")
 			backup_and_apply_all_config_from_upstream
 			;;
-		"3")
+		"Quit")
 			exit 0
 			;;
 	esac
