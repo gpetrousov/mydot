@@ -21,7 +21,7 @@ fi
 
 # Clone mydot
 function clone_mydot_into_home() {
-	if [ ! -d ]
+	if [ ! -d "$HOME/.mydot" ]
 	then
 		echo "Cloning mydot into $HOME/.mydot"
 		git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
