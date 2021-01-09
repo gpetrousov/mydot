@@ -77,7 +77,7 @@ function install_zsh() {
 # Apply ZSH config from upstream
 function apply_upstream_zsh_config() {
 	zsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
-	mydot checkout $zsh_conf_file
+	mydot checkout HEAD $zsh_conf_file
 }
 
 # Install TMUX
@@ -87,8 +87,8 @@ function install_tmux() {
 
 # Apply TMUX config from upstream
 function apply_upstream_tmux_config() {
-	tmux_conf_file=$(mydot) status --porcelain | grep tmux | sed s/^...//
-	mydot checkout $tmux_conf_file
+	tmux_conf_file="$(mydot status --porcelain | grep tmux | sed s/^...//)"
+	mydot checkout HEAD $tmux_conf_file
 }
 
 # Install neovim
@@ -98,8 +98,8 @@ function install_neovim() {
 
 # Apply neovim config from upstream
 function apply_upstream_neovim_config() {
-	neovim_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
-	mydot checkout $neovim_conf_file
+	neovim_conf_file="$(mydot status --porcelain | grep nvim | sed s/^...//)"
+	mydot checkout HEAD $neovim_conf_file
 }
 
 ### Main process
