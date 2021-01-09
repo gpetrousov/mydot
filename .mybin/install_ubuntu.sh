@@ -216,7 +216,7 @@ mydot status --porcelain | grep oh-my-zsh
 if [ $? -eq 0 ]
 then
 	echo "Applying oh-my-zsh config from upstream"
-	omzsh_conf_file="$(mydot status --porcelain | grep oh-my-zsh | sed s/^...//)"
+	omzsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
 	mydot checkout HEAD $omzsh_conf_file
 else
 	echo "oh-my-zsh config already present"
