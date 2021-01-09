@@ -85,13 +85,19 @@ function install_tmux() {
 	sudo apt-get -y install tmux
 }
 
+## Install and configure tpm
+function install_tpm() {
+	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+	tmux source ~/.tmux.conf
+	$HOME/.tmux/plugins/tpm/bin/install_plugins
+}
+
 # Apply TMUX config from upstream
 function apply_upstream_tmux_config() {
 	tmux_conf_file="$(mydot status --porcelain | grep tmux | sed s/^...//)"
 	mydot checkout HEAD $tmux_conf_file
 }
 
-# Install neovim
 function install_neovim() {
 	sudo apt-get -y install neovim
 }
@@ -118,6 +124,7 @@ do
 					"tmux")
 						install_tmux
 						apply_upstream_tmux_config
+						install_tpm
 						;;
 					"neovim")
 						install_neovim
@@ -159,10 +166,6 @@ done
 #
 #
 #
-## Install and configure tpm
-#git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-#export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
-#$HOME/.tmux/plugins/tpm/bin/install_plugins
 #
 ## Install fresh neovim plugins using Plug
 #nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
