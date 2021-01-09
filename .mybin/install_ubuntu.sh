@@ -113,6 +113,7 @@ do
 		"Install packages")
 			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh" "Quit";
 			do
+				update_apt_cache 1>/dev/null
 				case $install_package_choice in
 					"tmux")
 						install_tmux
