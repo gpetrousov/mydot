@@ -76,7 +76,7 @@ function install_zsh() {
 
 # Apply ZSH config from upstream
 function apply_upstream_zsh_config() {
-	zsh_conf_file=$(mydot) status --porcelain | grep zsh | sed s/^...//
+	zsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
 	mydot checkout $zsh_conf_file
 }
 
