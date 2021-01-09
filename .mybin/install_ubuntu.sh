@@ -44,6 +44,19 @@ function mydot() {
 	echo "$(/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME $@)"
 }
 
+function backup_and_apply_all_config_from_upstream() {
+	# Checkout the actual content from the bare repository to your $HOME
+	# Create a backup of existing config if necessary
+	mydot checkout
+	if [ $? = 0 ]; then
+			echo "Checked out config.";
+	else
+			echo "Backing up pre-existing dot files."
+			mkdir BACKUP_CONFIG_DIRECTORY
+			mydot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $BACKUP_CONFIG_DIRECTORY/{}
+	fi;
+	mydot checkout
+}
 
 
 ## Main Run
@@ -233,26 +246,10 @@ echo "installing xclip and xsel plugins"
 sudo apt-get -y install xclip xsel 1>/dev/null
 
 
-
-function backup_and_apply_all_config_from_upstream() {
-	# Checkout the actual content from the bare repository to your $HOME
-	# Create a backup of existing config if necessary
-	mydot checkout
-	if [ $? = 0 ]; then
-			echo "Checked out config.";
-	else
-			echo "Backing up pre-existing dot files."
-			mkdir BACKUP_CONFIG_DIRECTORY
-			mydot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $BACKUP_CONFIG_DIRECTORY/{}
-	fi;
-	mydot checkout
-
-}
-
-
 # Disable DEBUG on exit
 if [[ $1 == "DEBUG" ]]
 then
 	set +x
 	echo "Debug disabled"
 fi
+
