@@ -9,6 +9,7 @@
 ### Variables
 BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
 
+
 ### Functions
 
 # Enable DEBUG if $1 == "DEBUG"
@@ -30,13 +31,17 @@ function clone_mydot_into_home() {
 	fi
 }
 
+# Define base mydot command
+function mydot() {
+	echo "$(/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME $@)"
+}
+
 # Add mydot alias to your .bashrc
 function setup_mydot_aliases() {
 	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
 	echo "alias vim='nvim'" >> .bashrc
-	# TODO: make command more slick
 	# Don't show untracked items
-	/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME config status.showUntrackedFiles no
+	mydot config status.showUntrackedFiles no
 }
 
 function backup_and_apply_all_config_from_upstream() {
@@ -52,11 +57,6 @@ function backup_and_apply_all_config_from_upstream() {
 	fi;
 	mydot checkout
 
-}
-
-# Setup git-dir(repo path) and work-tree(tree path)
-function setup_mydot_command {
-	/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME
 }
 
 # Update apt cache
@@ -140,6 +140,7 @@ do
 			backup_and_apply_all_config_from_upstream
 			;;
 		"Quit")
+			echo "Exiting"
 			exit 0
 			;;
 	esac
