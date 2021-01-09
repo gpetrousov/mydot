@@ -122,7 +122,6 @@ else
 	echo "Cloning tpm"
 	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 	export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
-	tmux new
 	tmux source ~/.tmux.conf
 	echo "Running tpm to install plugins"
 	$HOME/.tmux/plugins/tpm/bin/install_plugins
