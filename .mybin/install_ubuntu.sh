@@ -13,6 +13,9 @@ then
 	set -x
 fi
 
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
 
 
 ## Variables
@@ -21,6 +24,20 @@ BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
 
 
 ## Functions
+
+# Function to handle user interrupt
+function ctrl_c() {
+	echo ""
+	echo ""
+	echo ""
+	echo "#=====-----=====#"
+        echo "Caught CTRL-C from user"
+	echo "Exiting"
+	echo ""
+	echo ""
+	echo ""
+	exit 9
+}
 
 # Define base mydot command
 function mydot() {
@@ -44,10 +61,10 @@ fi
 
 # Add mydot alias to your .bashrc
 echo "Create mydot alias"
-grep mydot=* $HOME/.bashrc
+grep mydot=* $HOME/.bashrc 1>/dev/null
 if [ $? -eq 0 ]
 then
-	echo "mydot alias already in $(HOME)/bashrc"
+	echo "mydot alias already in $HOME/.bashrc"
 else
 	echo "Adding mydot alias to bashrc"
 	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> $HOME/.bashrc
@@ -59,6 +76,7 @@ mydot config status.showUntrackedFiles no
 
 
 # Update APT cache
+echo "Update APT cache"
 sudo apt-get update 1>/dev/null
 
 
@@ -96,10 +114,17 @@ then
 else
 	echo "Cloning tpm"
 	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+	export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
 	tmux source ~/.tmux.conf
 	echo "Running tpm to install plugins"
 	$HOME/.tmux/plugins/tpm/bin/install_plugins
 fi
+
+## TMUX - TPM plugins
+tmux source ~/.tmux.conf
+export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
+echo "Running tpm to install plugins"
+$HOME/.tmux/plugins/tpm/bin/install_plugins
 
 
 # neovim
