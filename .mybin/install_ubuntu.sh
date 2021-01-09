@@ -98,7 +98,7 @@ function install_neovim() {
 
 # Apply neovim config from upstream
 function apply_upstream_neovim_config() {
-	neovim_conf_file=$(mydot) status --porcelain | grep neovim | sed s/^...//
+	neovim_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
 	mydot checkout $neovim_conf_file
 }
 
