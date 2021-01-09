@@ -49,12 +49,16 @@ function mydot() {
 ## Main Run
 
 # mydot
+echo ""
+echo ""
 echo "---------------------MYDOT---------------------"
+echo ""
+echo ""
 echo "Clone mydot"
 if [ ! -d "$HOME/.mydot" ]
 then
 	echo "Cloning mydot into $HOME/.mydot"
-	git clone --branch KISS --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+	git clone --branch KISS --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot 1>/dev/null
 else
 	echo "mydot already cloned"
 fi
@@ -81,8 +85,11 @@ sudo apt-get update 1>/dev/null
 
 
 # TMUX
-
+echo ""
+echo ""
 echo "---------------------TMUX---------------------"
+echo ""
+echo ""
 echo "Installing tmux"
 dpkg -l | grep tmux 1>/dev/null
 if [ $? -eq 0 ]
@@ -115,6 +122,7 @@ else
 	echo "Cloning tpm"
 	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 	export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins/
+	tmux new
 	tmux source ~/.tmux.conf
 	echo "Running tpm to install plugins"
 	$HOME/.tmux/plugins/tpm/bin/install_plugins
@@ -128,7 +136,11 @@ $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 
 # neovim
+echo ""
+echo ""
 echo "---------------------neovim---------------------"
+echo ""
+echo ""
 echo "Installing neovim"
 dpkg -l | grep neovim 1>/dev/null
 if [ $? -eq 0 ]
@@ -141,7 +153,7 @@ fi
 
 # neovim - config
 echo "Applying neovim config"
-mydot status --porcelain | grep neovim
+mydot status --porcelain | grep nvim
 if [ $? -eq 0 ]
 then
 	echo "Applying neovim config from upstream"
@@ -157,7 +169,11 @@ nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
 
 
 # ZSH
+echo ""
+echo ""
 echo "---------------------ZSH---------------------"
+echo ""
+echo ""
 echo "Installing ZSH"
 dpkg -l | grep zsh 1>/dev/null
 if [ $? -eq 0 ]
@@ -182,7 +198,11 @@ fi
 
 
 # oh-my-zsh
+echo ""
+echo ""
 echo "---------------------oh-my-zsh---------------------"
+echo ""
+echo ""
 echo "Installing oh-my-zsh"
 if [ -d $HOME/.oh-my-zsh ]
 then
@@ -205,7 +225,12 @@ fi
 
 
 # Install xclip and xsel utils (copy/past from clipboard)
+echo ""
+echo ""
 echo "---------------------xclip xsel---------------------"
+echo ""
+echo ""
+echo "installing xclip and xsel plugins"
 sudo apt-get -y install xclip xsel 1>/dev/null
 
 
