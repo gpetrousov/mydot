@@ -6,12 +6,6 @@
 # This is a bootstrap script for managing mydot.
 # Backup config is stored in $BACKUP_CONFIG_DIRECTORY
 
-### Variables
-BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
-
-
-### Functions
-
 # Enable DEBUG if $1 == "DEBUG"
 if [[ $1 == "DEBUG" ]]
 then
@@ -20,29 +14,176 @@ then
 fi
 
 
-# Clone mydot
-function clone_mydot_into_home() {
-	if [ ! -d "$HOME/.mydot" ]
-	then
-		echo "Cloning mydot into $HOME/.mydot"
-		git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
-	else
-		echo "mydot already cloned"
-	fi
-}
+
+## Variables
+BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
+
+
+
+## Functions
 
 # Define base mydot command
 function mydot() {
 	echo "$(/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME $@)"
 }
 
+
+
+## Main Run
+
+# mydot
+echo "---------------------MYDOT---------------------"
+echo "Clone mydot"
+if [ ! -d "$HOME/.mydot" ]
+then
+	echo "Cloning mydot into $HOME/.mydot"
+	git clone --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot
+else
+	echo "mydot already cloned"
+fi
+
 # Add mydot alias to your .bashrc
-function setup_mydot_aliases() {
-	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> .bashrc
-	echo "alias vim='nvim'" >> .bashrc
-	# Don't show untracked items
-	mydot config status.showUntrackedFiles no
-}
+echo "Create mydot alias"
+grep mydot=* $HOME/.bashrc
+if [ $? -eq 0 ]
+then
+	echo "mydot alias already in $(HOME)/bashrc"
+else
+	echo "Adding mydot alias to bashrc"
+	echo "alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME'" >> $HOME/.bashrc
+fi
+
+# Don't show untracked items
+echo "Configure mydot to not show untracked files"
+mydot config status.showUntrackedFiles no
+
+
+# Update APT cache
+sudo apt-get update 1>/dev/null
+
+
+# TMUX
+
+echo "---------------------TMUX---------------------"
+echo "Installing tmux"
+dpkg -l | grep tmux 1>/dev/null
+if [ $? -eq 0 ]
+then
+	echo "Tmux already installed"
+else
+	echo "Installing tmux"
+	sudo apt-get -y install tmux 1>/dev/null
+fi
+
+## TMUX - config
+echo "Applying tmux config"
+mydot status --porcelain | grep tmux
+if [ $? -eq 0 ]
+then
+	echo "Applying tmux config from upstream"
+	tmux_conf_file="$(mydot status --porcelain | grep tmux | sed s/^...//)"
+	mydot checkout HEAD $tmux_conf_file
+else
+	echo "Tmux config already applied"
+fi
+
+## TMUX - TPM
+echo "Installing tpm"
+
+if [ -d $HOME/.tmux/plugins/tpm ]
+then
+	echo "TPM alraedy installed"
+else
+	echo "Cloning tpm"
+	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+	tmux source ~/.tmux.conf
+	echo "Running tpm to install plugins"
+	$HOME/.tmux/plugins/tpm/bin/install_plugins
+fi
+
+
+# neovim
+echo "---------------------neovim---------------------"
+echo "Installing neovim"
+dpkg -l | grep neovim 1>/dev/null
+if [ $? -eq 0 ]
+then
+	echo "neovim already installed"
+else
+	echo "INstalling neovim"
+	sudo apt-get -y install neovim 1>/dev/null
+fi
+
+# neovim - config
+echo "Applying neovim config"
+mydot status --porcelain | grep neovim
+if [ $? -eq 0 ]
+then
+	echo "Applying neovim config from upstream"
+	neovim_conf_file="$(mydot status --porcelain | grep nvim | sed s/^...//)"
+	mydot checkout HEAD $neovim_conf_file
+else
+	echo "neovim config already applied"
+fi
+
+# neovim - plugin
+echo "Installing neovim plugins using Plug"
+nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
+
+
+# ZSH
+echo "---------------------ZSH---------------------"
+echo "Installing ZSH"
+dpkg -l | grep zsh 1>/dev/null
+if [ $? -eq 0 ]
+then
+	echo "ZSH already installed"
+else
+	echo "Installing ZSH"
+	sudo apt-get -y install zsh
+fi
+
+# ZSH - config
+echo "Applying ZSH config"
+mydot status --porcelain | grep zsh
+if [ $? -eq 0 ]
+then
+	echo "Applying ZSH config from upstream"
+	zsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
+	mydot checkout HEAD $zsh_conf_file
+else
+	echo "ZSH config already applied"
+fi
+
+
+# oh-my-zsh
+echo "---------------------oh-my-zsh---------------------"
+echo "Installing oh-my-zsh"
+if [ -d $HOME/.oh-my-zsh ]
+then
+	echo "oh-my-zsh already installed"
+else
+	echo "Installing oh-my-zsh unattended"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# oh-my-zsh - config
+mydot status --porcelain | grep oh-my-zsh
+if [ $? -eq 0 ]
+then
+	echo "Applying oh-my-zsh config from upstream"
+	omzsh_conf_file="$(mydot status --porcelain | grep oh-my-zsh | sed s/^...//)"
+	mydot checkout HEAD $omzsh_conf_file
+else
+	echo "oh-my-zsh config already present"
+fi
+
+
+# Install xclip and xsel utils (copy/past from clipboard)
+echo "---------------------xclip xsel---------------------"
+sudo apt-get -y install xclip xsel 1>/dev/null
+
+
 
 function backup_and_apply_all_config_from_upstream() {
 	# Checkout the actual content from the bare repository to your $HOME
@@ -59,119 +200,6 @@ function backup_and_apply_all_config_from_upstream() {
 
 }
 
-# Update apt cache
-function update_apt_cache() {
-	sudo apt-get update
-}
-
-# Install xclip and xsel utils (copy/past from clipboard)
-function install_clipboard_utils() {
-	sudo apt-get -y install xclip xsel
-}
-
-# Install ZSH
-function install_zsh() {
-	sudo apt-get -y install zsh
-}
-
-# Apply ZSH config from upstream
-function apply_upstream_zsh_config() {
-	zsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
-	mydot checkout HEAD $zsh_conf_file
-}
-
-# Install TMUX
-function install_tmux() {
-	sudo apt-get -y install tmux
-}
-
-## Install and configure tpm
-function install_tpm() {
-	git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-	tmux source ~/.tmux.conf
-	$HOME/.tmux/plugins/tpm/bin/install_plugins
-}
-
-# Apply TMUX config from upstream
-function apply_upstream_tmux_config() {
-	tmux_conf_file="$(mydot status --porcelain | grep tmux | sed s/^...//)"
-	mydot checkout HEAD $tmux_conf_file
-}
-
-function install_neovim() {
-	sudo apt-get -y install neovim
-}
-
-# Apply neovim config from upstream
-function apply_upstream_neovim_config() {
-	neovim_conf_file="$(mydot status --porcelain | grep nvim | sed s/^...//)"
-	mydot checkout HEAD $neovim_conf_file
-}
-
-### Main process
-
-clone_mydot_into_home
-setup_mydot_aliases
-
-select main_menu_choice in "Install packages" "Backup and apply all config from upstream" "Quit";
-do
-	case $main_menu_choice in
-		"Install packages")
-			select install_package_choice in "tmux" "neovim" "ZSH" "oh-my-zsh" "Quit";
-			do
-				update_apt_cache 1>/dev/null
-				case $install_package_choice in
-					"tmux")
-						install_tmux
-						apply_upstream_tmux_config
-						install_tpm
-						;;
-					"neovim")
-						install_neovim
-						apply_upstream_neovim_config
-						;;
-					"ZSH")
-						install_zsh
-						apply_upstream_zsh_config
-						;;
-					"oh-my-zsh")
-						install_oh_my_zsh
-						;;
-					"Quit")
-						echo "Exiting"
-						exit 0
-						;;
-				esac
-			done
-			;;
-		"Backup and apply all config from upstream")
-			backup_and_apply_all_config_from_upstream
-			;;
-		"Quit")
-			echo "Exiting"
-			exit 0
-			;;
-	esac
-done
-
-
-#
-#
-#
-## Upgrade to oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-#
-## Change shell to zsh
-#chsh -s $(which zsh)
-#
-#
-#
-#
-## Install fresh neovim plugins using Plug
-#nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
-#
-#echo "#===================COMPLETED=======================#"
-#
 
 # Disable DEBUG on exit
 if [[ $1 == "DEBUG" ]]
