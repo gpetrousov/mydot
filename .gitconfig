@@ -11,11 +11,3 @@
 [includeIf "gitdir:~/github/"]
 	path = ~/github/.gitconfig
 
-# Maxeda git config
-[includeIf "gitdir:~/maxeda/"]
-	path = ~/maxeda/.gitconfig
-
-# Mirabeau git config
-[includeIf "gitdir:~/mirabeau/"]
-	path = ~/mirabeau/.gitconfig
-
