@@ -189,7 +189,7 @@ mydot status --porcelain | grep zsh
 if [ $? -eq 0 ]
 then
 	echo "Applying ZSH config from upstream"
-	zsh_conf_file="$(mydot status --porcelain | grep zsh | sed s/^...//)"
+	zsh_conf_file="$(mydot status --porcelain | grep zsh | grep -v oh-my | sed s/^...//)"
 	mydot checkout HEAD $zsh_conf_file
 else
 	echo "ZSH config already applied"
