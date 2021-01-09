@@ -22,7 +22,6 @@ mydot push
 
 - github: a place to clone github projects
 - .mybin directory contains OS specific bootstrap scripts
-- .mybin: assistive scripts
 
 ### Inspiration
 
@@ -51,21 +50,21 @@ Only keep  the pieces of the config that you might actually find useful.
 
 - Just feed the bootstrap script into bash and witness magic
 
-#### Example: On a new Ubuntu system
+#### Example: On a new Mint system
 
-0. Install curl and git
-1. Generate a SSH key-pair for Github access
-2. If repo is private, add pub part to repo in github
-3. Run
+0. Install wget and git
+1. Run
 
 ```
-curl -Lks <github URL/mybin/install_X.sh> | /bin/bash
+wget <github URL/mybin/install_X.sh>
+/bin/bash install_X.s
 ```
 
 #### Debugging
 
-To debug execute the script with the '-x' option.
+To debug execute the script with the 'DEBUG' option.
 
 ```
-bash -x install_ubuntu.sh
+bash install_ubuntu.sh DEBUG
 ```
+
