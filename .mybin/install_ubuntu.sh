@@ -242,6 +242,7 @@ else
 fi
 
 # oh-my-zsh - default shell
+echo "Enter root password to change default shell to ZSH"
 chsh -s $(which zsh)
 
 
