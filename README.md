@@ -146,7 +146,7 @@ cd $HOME/github_work/work_repo
 git remote set-url origin git@github_work:tstark/personal_repo.git
 ```
 
-** References **
+**References**
 1. https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/
 2. https://stackoverflow.com/questions/7927750/specify-an-ssh-key-for-git-push-for-a-given-domain
 
