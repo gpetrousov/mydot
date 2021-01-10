@@ -17,11 +17,16 @@ mydot commit -m "Added my awesome vimrc config"
 mydot push
 ```
 
+### Showcase
+
+![Look showcase](.showcase/img1 "Preview of TMUX, nvim")
+
 
 ### File structure
 
 - github: a place to clone github projects
 - .mybin directory contains OS specific bootstrap scripts
+- .showcase: contains images showcasing the look
 
 ### Inspiration
 
