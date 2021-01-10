@@ -235,6 +235,10 @@ else
 	echo "oh-my-zsh config already present"
 fi
 
+# oh-my-zsh - default shell
+chsh -s $(which zsh)
+
+
 
 # Install xclip and xsel utils (copy/past from clipboard)
 echo ""
