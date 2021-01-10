@@ -175,9 +175,15 @@ else
 	echo "neovim config already applied"
 fi
 
-# neovim - plugin
+# neovim - plugins
 echo "Installing neovim plugins using Plug"
 nvim -u $HOME/.config/nvim/plug.vim -c "PlugInstall --sync" -c "qa"
+
+# neovim - coc plugin dependency
+echo "Installing neovim plugin dependencies"
+echo "- neovim - coc : node"
+echo "Installing node"
+curl -sL install-node.now.sh/lts | sudo bash
 
 
 # ZSH
