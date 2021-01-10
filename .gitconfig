@@ -8,6 +8,6 @@
 	a = add
 
 # Specific config for personal github repos
-[includeIf "gitdir:~/github/"]
-	path = ~/github/.gitconfig
+[includeIf "gitdir:~/gh_personal/"]
+	path = ~/gh_personal/.gitconfig
 
