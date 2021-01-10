@@ -71,7 +71,7 @@ echo "Clone mydot"
 if [ ! -d "$HOME/.mydot" ]
 then
 	echo "Cloning mydot into $HOME/.mydot"
-	git clone --branch KISS --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot 1>/dev/null
+	git clone --branch master --bare git@github.com:gpetrousov/mydot.git $HOME/.mydot 1>/dev/null
 else
 	echo "mydot already cloned"
 fi
