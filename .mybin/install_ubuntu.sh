@@ -58,6 +58,29 @@ function backup_and_apply_all_config_from_upstream() {
 	mydot checkout
 }
 
+# Install docker
+# I seem to roget the process of installing docker on Mint so here's a reminder.
+# Reference: https://techviewleo.com/how-to-install-and-use-docker-in-linux-mint/
+# Post installation: https://docs.docker.com/engine/install/linux-postinstall/
+function install_docker_mint() {
+		echo "Preparing to install docker on Mint"
+		echo "Update apt cache"
+		sudo apt-get update
+		sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		# lsb_release does not contain teh Ubuntu base version, however os-release does
+		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+		sudo apt-get update
+		sudo apt-get -y install docker-ce
+		sudo usermod -aG docker $USER
+		echo "=========================================================="
+		echo "=========================================================="
+		echo "Installation complete"
+		echo "Restart your box for group membership to be re-evaluated."
+		echo "=========================================================="
+		echo "=========================================================="
+}
+
 
 ## Main Run
 
