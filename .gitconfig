@@ -11,3 +11,7 @@
 [includeIf "gitdir:~/gh_personal/"]
 	path = ~/gh_personal/.gitconfig
 
+# Specific config for work github repos
+[includeIf "gitdir:~/gh_work/"]
+	path = ~/gh_work/.gitconfig
+
