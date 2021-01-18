@@ -81,6 +81,14 @@ function install_docker_mint() {
 		echo "=========================================================="
 }
 
+# Install terraform on linux Mint
+# Reference: https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
+function install_terraform_mint() {
+		curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+		sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d'=' -f 2) main" 
+		sudo apt-get update && sudo apt-get install terraform
+}
+
 
 ## Main Run
 
