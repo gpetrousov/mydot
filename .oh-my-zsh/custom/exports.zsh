@@ -2,14 +2,23 @@
 # Exports
 # ==================================== #
 
-# This fixes the warning I got from pip3 when installing awscli
+# This fixes the warning I got from pip3 when installing awscli (MAC)
 export PATH=$PATH:$HOME/Library/Python/3.7/bin:$HOME/Library/Python/2.7/bin
 
-# This includes openvpn binary
-export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7/sbin
+# This includes openvpn binary (MAC)
+if [ -d /usr/local/Cellar/openvpn/2.4.7/sbin ] ; then
+		PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7/sbin
+fi
 #
-# This includes aws-cli from installation to local path
-export PATH=$PATH:$HOME/aws-cli
+# This includes aws-cli from installation to local path (MAC)
+if [ -d "$HOME/aws-cli" ] ; then
+		PATH=$PATH:$HOME/aws-cli
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+		PATH="$HOME/bin:$PATH"
+fi
 
 # This fixes the errors I got from perl when using the Ack plugin in vim
 export LC_CTYPE=en_US.UTF-8
