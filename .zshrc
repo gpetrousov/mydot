@@ -92,3 +92,6 @@ ctags=/usr/local/bin/ctags
 # To activate zsh-completions, add the following to your .zshrc:
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
