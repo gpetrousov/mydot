@@ -63,7 +63,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,6 +92,6 @@ ctags=/usr/local/bin/ctags
 # To activate zsh-completions, add the following to your .zshrc:
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-
+# Enable Terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
