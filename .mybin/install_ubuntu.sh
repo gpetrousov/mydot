@@ -288,7 +288,7 @@ echo "---------------------xclip xsel---------------------"
 echo ""
 echo ""
 echo "installing xclip and xsel plugins"
-sudo apt-get -y install xclip xsel 1>/dev/null
+sudo apt-get -y install xclip xsel jq 1>/dev/null
 
 
 # Disable DEBUG on exit
