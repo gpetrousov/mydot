@@ -50,5 +50,11 @@ runtime plug.vim
 
 " colorscheme configs
 " #==================================================================================#
-colorscheme onedark
+colorscheme gruvbox
+
+" Make background transparent
+" Keep this before colorscheme setting
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
 " #==================================================================================#
