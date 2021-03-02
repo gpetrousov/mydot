@@ -95,3 +95,14 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Enable Terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# pyenv config for pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
+
