@@ -273,8 +273,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
-
-
 # Install xclip and xsel utils (copy/past from clipboard)
 echo ""
 echo ""
@@ -283,6 +281,21 @@ echo ""
 echo ""
 echo "installing xclip and xsel plugins"
 sudo pacman -S xclip xsel jq 1>/dev/null
+
+
+# Python
+echo ""
+echo ""
+echo "---------------------Python---------------------"
+echo ""
+echo ""
+echo "Installing Python"
+
+# pyenv
+pacman -S pyenv
+# pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
 
 
 # Disable DEBUG on exit
