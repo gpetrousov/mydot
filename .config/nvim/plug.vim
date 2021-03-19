@@ -16,6 +16,8 @@ Plug 'joshdick/onedark.vim' " Theme for vim https://github.com/joshdick/onedark.
 Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
 Plug 'tmux-plugins/vim-tmux' " A tmux.conf multitool https://github.com/tmux-plugins/vim-tmux
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+Plug 'elzr/vim-json'
+
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
