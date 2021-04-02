@@ -19,5 +19,7 @@ alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME' >> $HOME/.z
 # Git status
 alias gs='git status'
 
+# SteamLink
+alias steamlink='flatpak run com.valvesoftware.SteamLink'
 # ==================================== #
 
