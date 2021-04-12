@@ -19,5 +19,15 @@ alias mydot='/usr/bin/git --git-dir=$HOME/.mydot/ --work-tree=$HOME' >> $HOME/.z
 # Git status
 alias gs='git status'
 
+# # This might be useful when you're generating random passwords
+# Reference: https://www.redhat.com/sysadmin/creating-gpg-keypairs
+# Check system entropy
+alias sys_entropy='cat /proc/sys/kernel/random/entropy_avail'
+
+# List tmux keybindings for copy mode.
+# https://blog.sanctum.geek.nz/vi-mode-in-tmux/#:~:text=tmux%20offers%20a%20set%20of,window%20in%20the%20tmux%20session.
+# TODO Turn into a keybinding itself.
+alias tmkeys='tmux list-keys -T copy-mode-vi'
+
 # ==================================== #
 
