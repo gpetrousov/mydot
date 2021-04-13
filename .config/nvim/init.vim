@@ -50,7 +50,7 @@ runtime plug.vim
 
 " colorscheme configs
 " #==================================================================================#
-#colorscheme gruvbox
+"colorscheme gruvbox
 colorscheme pablo " Has better light/dark colors
 
 " Make background transparent
