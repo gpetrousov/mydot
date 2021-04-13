@@ -29,5 +29,11 @@ git_squash() {
 		git rebase -i master
 }
 
+
+# List tmux keys for copy mode
+tmux_copy_keys() {
+		tmux list-keys | grep -- '-T copy-mode-vi'
+}
+
 # ==================================== #
 
