@@ -13,7 +13,6 @@ Plug 'RRethy/vim-illuminate' " Underlines word under cursor and all of its occur
 Plug 'lepture/vim-jinja' " Syntax highlight for Jinja templates
 Plug 'morhetz/gruvbox' " Theme for vim https://github.com/morhetz/gruvbox
 Plug 'joshdick/onedark.vim' " Theme for vim https://github.com/joshdick/onedark.vim'
-Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
 Plug 'tmux-plugins/vim-tmux' " A tmux.conf multitool https://github.com/tmux-plugins/vim-tmux
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'elzr/vim-json'
