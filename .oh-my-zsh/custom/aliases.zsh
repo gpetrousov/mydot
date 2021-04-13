@@ -29,5 +29,7 @@ alias sys_entropy='cat /proc/sys/kernel/random/entropy_avail'
 # TODO Turn into a keybinding itself.
 alias tmkeys='tmux list-keys -T copy-mode-vi'
 
+# SteamLink
+alias steamlink='flatpak run com.valvesoftware.SteamLink'
 # ==================================== #
 
