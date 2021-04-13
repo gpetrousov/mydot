@@ -11,7 +11,7 @@ set ignorecase
 set smartcase
 set scrolloff=4 " Keep 4 lines below and above the cursor
 set updatetime=300
-set background=dark
+"set background=dark
 
 
 " netrw configs
@@ -58,4 +58,15 @@ colorscheme pablo " Has better light/dark colors
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
+
+" Update background based on time of day
+" TODO: Look for a better solution
+if strftime("%H") < 20
+  set background=light
+else
+  set background=dark
+endif
 " #==================================================================================#
+
+
+
