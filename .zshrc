@@ -106,3 +106,7 @@ fi
 # pyenv config for pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
+# Go config
+export GOPATH=$HOME/go
+export PATH="$P$GOPATH/bin:$PATH"
+

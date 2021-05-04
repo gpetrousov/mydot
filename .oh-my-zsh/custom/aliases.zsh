@@ -31,5 +31,8 @@ alias tmkeys='tmux list-keys -T copy-mode-vi'
 
 # SteamLink
 alias steamlink='flatpak run com.valvesoftware.SteamLink'
+
+# cd to workdir
+alias work='cd $HOME/gh_work'
 # ==================================== #
 
