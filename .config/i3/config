@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,6 +33,9 @@ exec --no-startup-id nm-applet
 # Autostart RedShift
 exec --no-startup-id redshift-gtk
 
+# Autostart bluetooth program
+exec --no-startup-id blueberry-tray
+
 # Lock screen using i3lock
 bindsym $mod+Control+l exec i3lock -c 000000
 
@@ -45,6 +48,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# mod+right mouse button toggles floating
+bindsym $mod+button3 floating toggle
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -183,6 +189,36 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# Display all information on primary display
 bar {
+		output primary
         status_command i3status
+		tray_output primary
+		tray_padding 0
+		font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+		font pango:DejaVu Sans Mono 9
+		separator_symbol ":.:|:.:"
+		workspace_min_width 40
+		colors {
+				separator #FF8C00
+				focused_workspace  #FF8C00 #285577 #ffffff
+		}
 }
+
+# Don't display info in nonprimary displays
+bar {
+		output nonprimary
+		font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+		font pango:DejaVu Sans Mono 9
+		separator_symbol ":.:|:.:"
+		workspace_min_width 40
+		colors {
+				separator #FF8C00
+				focused_workspace  #FF8C00 #285577 #ffffff
+		}
+}
+
+# Colors
+# class        border  backgr. text    indicator child_border
+client.focused #4c7899 #FF8C00 #ffffff #2e9ef4 #285577
+
