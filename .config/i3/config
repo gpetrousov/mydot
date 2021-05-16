@@ -36,6 +36,9 @@ exec --no-startup-id redshift-gtk
 # Autostart bluetooth program
 exec --no-startup-id blueberry-tray
 
+# Autostart flameshot (snipping tool)
+exec --no-startup-id flameshot
+
 # Lock screen using i3lock
 bindsym $mod+Control+l exec i3lock -c 000000
 
