@@ -1,6 +1,7 @@
 set nocompatible
 filetype plugin on
 filetype plugin indent on
+set smartindent
 set number
 set hlsearch
 set incsearch
