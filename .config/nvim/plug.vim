@@ -17,6 +17,8 @@ Plug 'mrk21/yaml-vim' " YAML syntax/indent plugin for Vim.
 Plug 'tmux-plugins/vim-tmux' " A tmux.conf multitool https://github.com/tmux-plugins/vim-tmux
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'elzr/vim-json'
+Plug 'chrisbra/csv.vim' " Handles CSV files
+Plug 'sheerun/vim-polyglot' " A collection of language packs for vim
 
 
 " List ends here. Plugins become visible to Vim after this call.
