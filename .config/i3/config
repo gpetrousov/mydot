@@ -19,6 +19,9 @@ font pango:monospace 9
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# Set background solid color
+xsetroot -solid "#953cb5"
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -41,6 +44,12 @@ exec --no-startup-id flameshot
 
 # Lock screen using i3lock
 bindsym $mod+Control+l exec i3lock -c 000000
+
+# Additional keyboard layouts and toggles
+exec --no-startup-id setxkbmap gr,us -option 'grp:shifts_toggle'
+
+# Suspend computer
+bindsym Control+Mod1+u exec systemctl suspend
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
