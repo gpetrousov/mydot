@@ -40,11 +40,11 @@ set $mod Mod4
 #################                          Define the movements keys - variables                    #################
 #####################################################################################################################
 
-#This is setup for vim hackers
-set $up l
-set $down k
-set $left j
-set $right semicolon
+# Vim setup
+set $up k
+set $down j
+set $left h
+set $right l
 
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
