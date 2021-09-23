@@ -3,7 +3,6 @@ filetype plugin on
 filetype plugin indent on
 set smartindent
 set number
-set hlsearch
 set incsearch
 set ruler
 set tabstop=4
@@ -60,6 +59,17 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 "colorscheme gruvbox
 colorscheme pablo " Has better light/dark colors
 
+
+" Cursor settings
+" #==================================================================================#
+
+" Cursor blinking
+set guicursor+=n-v-c:blinkon1
+set guicursor+=n-v-c:blinkoff1
+set guicursor+=i:blinkwait1
+" #==================================================================================#
+
+
 " Make background transparent
 " Keep this before colorscheme setting
 hi Normal     ctermbg=NONE guibg=NONE
@@ -76,4 +86,9 @@ endif
 " #==================================================================================#
 
 
-
+" highlight search settings
+" #==================================================================================#
+set hlsearch
+highlight Search  ctermfg=LightGreen
+highlight Search  ctermbg=Darkblue
+" #==================================================================================#
