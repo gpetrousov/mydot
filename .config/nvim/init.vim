@@ -92,3 +92,7 @@ set hlsearch
 highlight Search  ctermfg=LightGreen
 highlight Search  ctermbg=Darkblue
 " #==================================================================================#
+
+" syntax highlight for files
+" #==================================================================================#
+au BufNewFile,BufRead Jenkinsfile setf groovy
