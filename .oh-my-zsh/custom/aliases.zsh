@@ -36,3 +36,5 @@ alias steamlink='flatpak run com.valvesoftware.SteamLink'
 alias work='cd $HOME/gh_work'
 # ==================================== #
 
+# kubectl aliases
+alias k='kubectl'
