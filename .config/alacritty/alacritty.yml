@@ -4,5 +4,5 @@ cursor:
   style:
     shape: Block
     blinking: Always
-  blink_interval: 750
+  blink_interval: 450
 
