@@ -157,8 +157,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 ## Set keyboard layouts																		  ##
 ################################################################################################
 # https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
-exec "setxkbmap -layout us,gr"
-exec "setxkbmap -option 'grp:toggle'" # switch layout with right alt
+exec_always --no-startup-id "setxkbmap -layout us,gr -option 'grp:shifts_toggle'" # toggle layout with both shift keys
 
 ################################################################################################
 
@@ -391,7 +390,7 @@ exec --no-startup-id solaar -w hide -b solaar # Logitech device manager;Should s
 exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker "setxkbmap us && blurlock & sleep 3m && xset dpms force off "
+# exec --no-startup-id xautolock -time 10 -locker "setxkbmap us && blurlock & sleep 3m && xset dpms force off "
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
