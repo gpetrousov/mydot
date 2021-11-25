@@ -3,6 +3,6 @@ background_opacity: 0.85
 cursor:
   style:
     shape: Block
-    blinking: On
-    blink_interval: 500
+    blinking: Always
+  blink_interval: 750
 
