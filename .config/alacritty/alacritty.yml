@@ -1,0 +1,20 @@
+background_opacity: 0.85
+
+cursor:
+  style:
+    shape: Block
+    blinking: On
+    blink_interval: 500
+
+# Font configuration
+#font:
+  # Normal (roman) font face
+  #normal:
+    # Font family
+    #
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux/BSD) monospace
+    #   - (Windows) Consolas
+    #family: monospace
+
