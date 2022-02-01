@@ -87,6 +87,15 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Start ssh-agent automatically and make sure only one agent is running each time
+# https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
+if [ $(pgrep -u $USER ssh-agent | wc -l) -eq 0 ]; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! $SSH_AUTH_SOCK ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 ctags=/usr/local/bin/ctags
 
 # To activate zsh-completions, add the following to your .zshrc:
