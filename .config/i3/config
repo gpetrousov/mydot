@@ -220,6 +220,9 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# Move the currently focused workspace into primary output
+bindsym $mod+p move workspace to output primary
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
