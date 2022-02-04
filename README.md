@@ -73,6 +73,17 @@ To debug execute the script with the 'DEBUG' option.
 bash install_ubuntu.sh DEBUG
 ```
 
+
+## Tools used
+
+- alacritty
+- i3wm
+- nvim
+- redshift
+- zsh
+- oh-my-zsh
+- tmux
+
 ## Tutorials
 
 #### Adding multiple github accounts
