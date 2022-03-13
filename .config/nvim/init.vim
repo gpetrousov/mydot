@@ -12,6 +12,8 @@ set smartcase
 set scrolloff=4 " Keep 4 lines below and above the cursor
 set updatetime=300
 "set background=dark
+set showcmd
+set wildmenu
 
 
 " netrw configs
@@ -51,6 +53,12 @@ runtime plug.vim
 " Set indendation for yaml files
 " #==================================================================================#
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" #==================================================================================#
+
+
+" Set indendation for SHELL files
+" #==================================================================================#
+autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
 " #==================================================================================#
 
 
