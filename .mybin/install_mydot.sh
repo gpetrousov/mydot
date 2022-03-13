@@ -24,7 +24,7 @@ trap ctrl_c INT
 ## Variables
 BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
 BASE_PACKAGES="tmux neovim zsh xclip xsel jq yq pyenv ranger kubectl alacritty"
-AUR_PACKAGES="pyenv-virtualenv alacritty-colorscheme tmux-plugin-manager urlview"
+AUR_PACKAGES="pyenv-virtualenv alacritty-colorscheme urlview"
 
 
 ## Functions
@@ -109,9 +109,6 @@ print_message "Cloning oh-my-ZSH plugins"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# 3.5 tmux plugin manager
-print_message "Cloning tmux-plugin-manager"
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 ## 4. Checkout dotfiles
 print_message "Apply dotfiles"
