@@ -15,3 +15,5 @@
 [includeIf "gitdir:~/gh_work/"]
 	path = ~/gh_work/.gitconfig
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
