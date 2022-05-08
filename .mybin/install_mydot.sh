@@ -24,7 +24,7 @@ trap ctrl_c INT
 ## Variables
 BACKUP_CONFIG_DIRECTORY="$HOME/.config_backup"
 BASE_PACKAGES="tmux neovim zsh xclip xsel jq yq pyenv ranger kubectl alacritty"
-AUR_PACKAGES="pyenv-virtualenv alacritty-colorscheme urlview"
+AUR_PACKAGES="pyenv-virtualenv alacritty-colorscheme urlview tfswitch"
 
 
 ## Functions
