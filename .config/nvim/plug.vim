@@ -18,6 +18,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 &
 Plug 'elzr/vim-json' " JSON plugin
 Plug 'stephpy/vim-yaml' " YAML color syntax plugin
 Plug 'tarekbecker/vim-yaml-formatter' " YAML formatter
+Plug 'tpope/vim-surround' " Use cs(t) to change the surrounding elements of a string
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
