@@ -50,10 +50,16 @@ runtime plug.vim
 " #==================================================================================#
 
 
-" Set indendation for yaml files
+" Set config for YAML files
 " #==================================================================================#
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 let g:yaml_formatter_indent_collection=1
+" #==================================================================================#
+
+
+" Set config for JSON files
+" #==================================================================================#
+let g:vim_json_syntax_conceal = 0 " Prevent consealing quotes in JSON files
 " #==================================================================================#
 
 
@@ -102,6 +108,6 @@ highlight Search  ctermfg=LightGreen
 highlight Search  ctermbg=Darkblue
 " #==================================================================================#
 
-" syntax highlight for files
+" syntax highlight for Groovy/Jenkinsfiles
 " #==================================================================================#
 au BufNewFile,BufRead Jenkinsfile setf groovy
