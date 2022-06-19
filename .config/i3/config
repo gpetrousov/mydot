@@ -386,8 +386,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id redshift-gtk
 exec --no-startup-id solaar -w hide -b solaar # Logitech device manager;Should start on tray
 exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
+exec --no-startup-id start_conky_custom
 # exec --no-startup-id xautolock -time 10 -locker "setxkbmap us && blurlock & sleep 3m && xset dpms force off "
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
