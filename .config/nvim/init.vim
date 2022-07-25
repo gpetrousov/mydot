@@ -111,3 +111,21 @@ highlight Search  ctermbg=Darkblue
 " syntax highlight for Groovy/Jenkinsfiles
 " #==================================================================================#
 au BufNewFile,BufRead Jenkinsfile setf groovy
+" #==================================================================================#
+
+" Automatic line wrapping without breaks - https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
+" #==================================================================================#
+set wrap
+set linebreak
+set textwidth=0
+set wrapmargin=0
+" Move through wrapped lines - https://vim.fandom.com/wiki/Move_cursor_by_display_lines_when_wrapping#:~:text=The%20command%20%3Aset%20wrap%20lbr,following%20in%20your%20vimrc%20file.
+imap <silent> <Down> <C-o>gj
+imap <silent> <Up> <C-o>gk
+nmap <silent> <Down> gj
+nmap <silent> <Up> gk
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
+" #==================================================================================#
