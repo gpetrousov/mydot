@@ -71,8 +71,7 @@ autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
 
 " colorscheme configs
 " #==================================================================================#
-"colorscheme gruvbox
-colorscheme pablo " Has better light/dark colors
+colorscheme onedark
 
 
 " Cursor settings
