@@ -195,10 +195,10 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 # move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$left move left 20 px
+bindsym $mod+Shift+$down move down 20 px
+bindsym $mod+Shift+$up move up 20 px
+bindsym $mod+Shift+$right move right 20 px
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -353,7 +353,7 @@ mode "$mode_system" {
 
 # Switch keyboard layout to us, Lock screen, Sleep 3m, Turn off display
 # https://wiki.archlinux.org/title/Display_Power_Management_Signaling
-bindsym $mod+9 exec --no-startup-id setxkbmap us && blurlock & sleep 3m && xset dpms force off
+bindsym $mod+9 exec --no-startup-id setxkbmap us && blurlock & sleep 10 && xset dpms force off
 
 ################################################################################################
 
