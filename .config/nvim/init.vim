@@ -93,6 +93,11 @@ highlight Search  ctermbg=Darkblue
 au BufNewFile,BufRead Jenkinsfile setf groovy
 " #==================================================================================#
 
+" set syntax preferences for C based files
+" #==================================================================================#
+au BufNewFile,BufRead *.c,*.l,*.cpp set sw=4
+" #==================================================================================#
+
 " Automatic line wrapping without breaks - https://vim.fandom.com/wiki/Word_wrap_without_line_breaks
 " #==================================================================================#
 set wrap
