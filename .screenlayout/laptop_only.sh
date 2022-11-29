@@ -5,7 +5,7 @@
 # Author: Ioannis Petrousov
 # Date: 26-11-2022
 
-external_displays=$(xrandr | grep -w connected | cut -f 1 -d ' ' | grep -v eDP1)
+external_displays=$(xrandr | cut -f 1 -d ' ' | grep -v eDP1)
 set_display="xrandr --output eDP1 \
     --primary --mode 2256x1504 \
     --pos 0x0 --rotate normal \
@@ -15,5 +15,6 @@ for ed in $external_displays
 do
   set_display="${set_display} --output ${ed} --off "
 done
+echo ${set_display}
 
 eval "$set_display"
