@@ -16,6 +16,11 @@ set showcmd
 set wildmenu
 
 
+" Scroll down faster with Ctrl+e https://vi.stackexchange.com/questions/7040/scrolling-down-multiple-lines-with-ctrle
+" #==================================================================================#
+nnoremap <C-e> 5<C-e>
+" #==================================================================================#
+
 " netrw configs
 " #==================================================================================#
 " How the navtree is displayed
