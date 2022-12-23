@@ -392,6 +392,7 @@ exec --no-startup-id start_conky_custom
 # exec --no-startup-id xautolock -time 10 -locker "setxkbmap us && blurlock & sleep 3m && xset dpms force off "
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec --no-startup-id unclutter --start-hidden # Hides your X mouse cursor when you do not need it
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
