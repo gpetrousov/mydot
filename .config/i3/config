@@ -55,8 +55,8 @@ set $right l
 
 ################################################################################################
 
-# Set fallback display to laptop using the keycode 110 (keysym 0xff50) Home buttom
-bindsym 0xffc8 exec $HOME/.screenlayout/laptop_only.sh
+# Set fallback display to laptop using the F12
+bindsym 0xffc9 exec $HOME/.screenlayout/laptop_only.sh
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
