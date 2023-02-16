@@ -120,3 +120,7 @@ eval "$(pyenv virtualenv-init -)"
 export GOPATH=$HOME/go
 export PATH="$P$GOPATH/bin:$PATH"
 
+# Set click method for touchpad.
+# 2 fingers => right click
+# 3 fingers =. middle click
+xinput set-prop 11 "libinput Click Method Enabled" 0 1
