@@ -429,9 +429,8 @@ bar {
 	status_command i3status
 	position bottom
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
+# Set tray icons to output to primary display first.
+	tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
