@@ -2,3 +2,5 @@
 	name = Ioannis Petrousov
 	email = ioannis.petrousov@diymaxeda.com
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
