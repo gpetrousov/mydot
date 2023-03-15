@@ -455,6 +455,7 @@ bar {
 bar {
     output nonprimary
 	mode hide
+	tray_output none
 }
 
 # hide/unhide i3status bar
