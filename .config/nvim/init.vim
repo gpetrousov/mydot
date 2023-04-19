@@ -56,6 +56,11 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 let g:yaml_formatter_indent_collection=1
 " #==================================================================================#
 
+" Set config for Lua files
+" #==================================================================================#
+autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab
+" #==================================================================================#
+
 " Set config for JSON files
 " #==================================================================================#
 let g:vim_json_syntax_conceal = 0 " Prevent consealing quotes in JSON files
