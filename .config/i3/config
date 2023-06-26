@@ -158,7 +158,8 @@ exec_always --no-startup-id "setxkbmap -layout us,gr -option 'grp:shifts_toggle'
 
 
 # feh sets wallpaper
-exec --no-startup-id feh --randomize --bg-fill /usr/share/backgrounds/arco-wallpaper.jpg &
+exec --no-startup-id feh --randomize --bg-fill --xinerama-index 0 /usr/share/backgrounds/arco-wallpaper.jpg &
+exec --no-startup-id feh --randomize --bg-fill --xinerama-index 1 /usr/share/backgrounds/arco-wallpaper.jpg &
 
 
 #####################################################################################################################
