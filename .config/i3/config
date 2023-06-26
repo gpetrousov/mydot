@@ -146,7 +146,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 #bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 ## Set keyboard layouts																		  ##
@@ -156,10 +156,6 @@ exec_always --no-startup-id "setxkbmap -layout us,gr -option 'grp:shifts_toggle'
 
 ################################################################################################
 
-
-# feh sets wallpaper
-exec --no-startup-id feh --randomize --bg-fill --xinerama-index 0 /usr/share/backgrounds/arco-wallpaper.jpg &
-exec --no-startup-id feh --randomize --bg-fill --xinerama-index 1 /usr/share/backgrounds/arco-wallpaper.jpg &
 
 
 #####################################################################################################################
@@ -389,6 +385,10 @@ exec --no-startup-id start_conky_custom
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id unclutter --start-hidden # Hides your X mouse cursor when you do not need it
+# Pulse audio volume control tray icon
+exec --no-startup-id pa-applet
+# feh sets wallpaper
+exec --no-startup-id feh --randomize --bg-fill --xinerama-index 1 /usr/share/backgrounds/arco-wallpaper.jpg &
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -439,7 +439,7 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #222D31
+        background $term_background
         statusline #F9FAF9
         separator  #454947
 
