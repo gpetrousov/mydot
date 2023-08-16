@@ -20,6 +20,7 @@ Plug 'stephpy/vim-yaml' " YAML color syntax plugin
 Plug 'tarekbecker/vim-yaml-formatter' " YAML formatter
 Plug 'tpope/vim-surround' " Use cs(t) to change the surrounding elements of a string
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair.
+Plug 'preservim/NERDTree' " Display a file tree
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
