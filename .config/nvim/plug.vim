@@ -21,6 +21,11 @@ Plug 'tarekbecker/vim-yaml-formatter' " YAML formatter
 Plug 'tpope/vim-surround' " Use cs(t) to change the surrounding elements of a string
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair.
 Plug 'preservim/NERDTree' " Display a file tree
+Plug 'kyazdani42/nvim-web-devicons' " Icon pack for NERDTree
+Plug 'ryanoasis/vim-devicons' " Icon pack for NERDTree
+
+" syntax support for the file tree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
