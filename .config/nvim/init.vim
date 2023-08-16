@@ -14,7 +14,7 @@ set updatetime=300
 "set background=dark
 set showcmd
 set wildmenu
-
+set iskeyword+=- " treat dash separated words as a word text object
 
 " Scroll down faster with Ctrl+e https://vi.stackexchange.com/questions/7040/scrolling-down-multiple-lines-with-ctrle
 " #==================================================================================#
