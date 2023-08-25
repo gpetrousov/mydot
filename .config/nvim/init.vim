@@ -103,6 +103,11 @@ highlight Search  ctermbg=Darkblue
 au BufNewFile,BufRead Jenkinsfile setf groovy
 " #==================================================================================#
 
+" NERDTree config
+" #==================================================================================#
+let NERDTreeShowHidden=1
+" #==================================================================================#
+
 " set syntax preferences for C based files
 " #==================================================================================#
 au BufNewFile,BufRead *.c,*.l,*.cpp set sw=4
