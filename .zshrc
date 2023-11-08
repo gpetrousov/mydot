@@ -63,7 +63,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions web-search)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions web-search git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,3 +125,7 @@ export PATH="$P$GOPATH/bin:$PATH"
 # 3 fingers =. middle click
 touch_pad_id=$(xinput | grep -i touch | awk -F'id=' '{print $2}' | awk '{print $1}')
 xinput set-prop $touch_pad_id "libinput Click Method Enabled" 0 1
+xinput set-prop 11 "libinput Click Method Enabled" 0 1
+
+# Setup NVM
+source /usr/share/nvm/init-nvm.sh
