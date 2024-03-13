@@ -35,5 +35,8 @@ tmux_copy_keys() {
 		tmux list-keys | grep -- '-T copy-mode-vi'
 }
 
-# ==================================== #
 
+# Remove USB drive
+usb_safe_remove() {
+    udisksctl power-off -b /dev/sda1
+}
