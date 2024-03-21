@@ -341,6 +341,14 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 ################################################################################################
 
 
+#####################################################################################################################
+#################                          external monitor                                         #################
+#####################################################################################################################
+set $ext_monitor exec bash $HOME/.config/sway/ext_monitor.sh
+bindsym $mod+Shift+m exec $ext_monitor
+
+################################################################################################
+
 # Autostart applications
 # exec : runs the command only when i3 is started once on login
 # exec_always : runs the command each time i3 reloads/restarts
