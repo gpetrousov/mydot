@@ -76,7 +76,7 @@ floating_modifier $mod normal
 bindsym $mod+Return exec alacritty
 
 # Take interactive screenshot of an area and store it in the clipboard
-bindsym $mod+Shift+p exec grimshot copy area
+bindsym $mod+Shift+p exec grim -g "$(slurp)" - | swappy -f -
 
 #####################################################################################################################
 #################                          moving around workspaces                                 #################
