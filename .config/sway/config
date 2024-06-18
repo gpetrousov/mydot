@@ -98,6 +98,7 @@ bindsym Mod1+Ctrl+Left workspace prev
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
+bindsym $mod+Shift+Tab tab back_and_forth
 
 #####################################################################################################################
 #################                          Stopping an application                                  #################
@@ -145,6 +146,18 @@ input "type:keyboard" {
 
 ################################################################################################
 
+
+################################################################################################
+## Touchpad configuration
+################################################################################################
+input "type:touchpad" {
+    dwt enabled
+    dwtp enabled
+    tap enabled
+    tap_button_map lrm
+}
+
+################################################################################################
 
 
 #####################################################################################################################
@@ -357,7 +370,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id solaar -w hide -b solaar # Logitech device manager;Should start on tray
 exec_always --no-startup-id sbxkb
-exec_always --no-startup-id wlsunset
+exec_always --no-startup-id wlsunset -l 52.6 -L 4.7
 exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
