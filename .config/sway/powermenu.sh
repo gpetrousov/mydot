@@ -8,7 +8,8 @@ case $selected in
   logout)
     logout;;
   suspend)
-    exec systemctl suspend;;
+    swaylock -c 111111 &
+    systemctl suspend;;
   reboot)
     exec systemctl reboot;;
   shutdown)
