@@ -1,12 +1,10 @@
 #!/bin/bash
 
-entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
+entries="⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
 
 selected=$(echo -e $entries|wofi --width 250 --height 240 --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
 
 case $selected in
-  logout)
-    logout;;
   suspend)
     swaylock -c 111111 &
     systemctl suspend;;
