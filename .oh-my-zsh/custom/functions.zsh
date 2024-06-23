@@ -29,14 +29,17 @@ git_squash() {
 		git rebase -i master
 }
 
-
 # List tmux keys for copy mode
 tmux_copy_keys() {
 		tmux list-keys | grep -- '-T copy-mode-vi'
 }
 
-
 # Remove USB drive
 usb_safe_remove() {
     udisksctl power-off -b /dev/sda1
+}
+
+# Create standard Terraform structure
+tfstruct() {
+  touch {provider.tf,variables.tf,outputs.tf,main.tf,values.tfvars}
 }

@@ -33,8 +33,11 @@ alias tmkeys='tmux list-keys -T copy-mode-vi'
 alias steamlink='flatpak run com.valvesoftware.SteamLink'
 
 # cd to workdir
-alias work='cd $HOME/gh_work'
+alias work='cd $HOME/work_repos'
 # ==================================== #
 
 # kubectl aliases
 alias k='kubectl'
+
+# Timeshift backups
+timeshift="sudo -E timeshift-gtk"
