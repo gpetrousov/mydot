@@ -36,8 +36,13 @@ alias steamlink='flatpak run com.valvesoftware.SteamLink'
 alias work='cd $HOME/work_repos'
 # ==================================== #
 
-# kubectl aliases
+# kube aliases
 alias k='kubectl'
+alias kx='kubectx'
 
 # Timeshift backups
 timeshift="sudo -E timeshift-gtk"
+
+alias tf=terraform
+
+alias copy="wl-copy"
