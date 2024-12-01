@@ -7,10 +7,13 @@
 	d = diff
 	a = add
 
-# Specific config for personal github repos
-[includeIf "gitdir:~/dev/"]
-	path = ~/dev/.gitconfig
-
 # Specific config for work repos
 [includeIf "gitdir:~/work_repos/"]
 	path = ~/work_repos/.gitconfig
+
+# Specific config for dev repos
+[includeIf "gitdir:~/dev/"]
+	path = ~/dev/.gitconfig
+
+[url "git@github.com:"]
+        insteadOf = https://github.com/
