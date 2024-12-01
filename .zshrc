@@ -123,9 +123,8 @@ export PATH="$P$GOPATH/bin:$PATH"
 # Set click method for touchpad.
 # 2 fingers => right click
 # 3 fingers =. middle click
-touch_pad_id=$(xinput | grep -i touch | awk -F'id=' '{print $2}' | awk '{print $1}')
-xinput set-prop $touch_pad_id "libinput Click Method Enabled" 0 1
-xinput set-prop 11 "libinput Click Method Enabled" 0 1
+#touch_pad_id=$(xinput | grep -i touch | awk -F'id=' '{print $2}' | awk '{print $1}')
+#xinput set-prop $touch_pad_id "libinput Click Method Enabled" 0 1
+#xinput set-prop 11 "libinput Click Method Enabled" 0 1
 
-# Setup NVM
-source /usr/share/nvm/init-nvm.sh
+export QSYS_ROOTDIR="/var/tmp/pamac-build-master/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/23.1/quartus/sopc_builder/bin"
