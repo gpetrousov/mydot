@@ -39,6 +39,7 @@ alias work='cd $HOME/work_repos'
 # kube aliases
 alias k='kubectl'
 alias kx='kubectx'
+alias karplogs="kubectl logs -f -n karpenter -c controller -l app.kubernetes.io/name=karpenter"
 
 # Timeshift backups
 timeshift="sudo -E timeshift-gtk"
