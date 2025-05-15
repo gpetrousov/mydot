@@ -362,7 +362,6 @@ bindsym $mod+Shift+m exec $ext_monitor
 # https://i3wm.org/docs/userguide.html#exec
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
-exec --no-startup-id solaar -w hide -b solaar # Logitech device manager;Should start on tray
 exec_always --no-startup-id sbxkb
 exec_always --no-startup-id wlsunset -l 52.6 -L 4.7
 exec_always --no-startup-id blueberry-tray
