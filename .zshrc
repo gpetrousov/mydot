@@ -128,3 +128,6 @@ export PATH="$P$GOPATH/bin:$PATH"
 #xinput set-prop 11 "libinput Click Method Enabled" 0 1
 
 export QSYS_ROOTDIR="/var/tmp/pamac-build-master/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/23.1/quartus/sopc_builder/bin"
+
+# Alternative QT platform backend
+export QT_QPA_PLATFORM=xcb
