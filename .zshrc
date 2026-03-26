@@ -120,6 +120,13 @@ eval "$(pyenv virtualenv-init -)"
 export GOPATH=$HOME/go
 export PATH="$P$GOPATH/bin:$PATH"
 
+
+# rstudio config
+export PATH="/usr/lib/rstudio:$PATH"
+
+# Update cargo path
+export PATH="/home/master/.cargo/bin:$PATH"
+
 # Set click method for touchpad.
 # 2 fingers => right click
 # 3 fingers =. middle click
