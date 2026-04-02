@@ -17,6 +17,7 @@ return {
 					"terraformls",
 					"html",
 					"jinja_lsp",
+                    "rust_analyzer"
 				},
 			})
 		end,
