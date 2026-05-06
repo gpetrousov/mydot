@@ -10,3 +10,11 @@ vim.keymap.set("n", "<C-h>", "<c-w>5>")
 -- Taller/Shorter
 vim.keymap.set("n", "<C-k>", "<C-W>+")
 vim.keymap.set("n", "<C-j>", "<C-W>-")
+
+-- Move by visual lines (wrapped lines) rather than logical lines
+vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
+vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
+
+-- Also apply to visual mode so selections follow the wrap
+vim.keymap.set("x", "j", "gj", { noremap = true, silent = true })
+vim.keymap.set("x", "k", "gk", { noremap = true, silent = true })
