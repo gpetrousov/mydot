@@ -62,13 +62,19 @@ return {
 			require("lspconfig").pylsp.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				settings = {
-					pylsp = {
-						plugins = {
-							pycodestyle = {
-								maxLineLength = 120,
-							},
-						},
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                maxLineLength = 120,
+                            },
+                            jedi = {
+                                -- This helps pylsp find the libraries in your active pyenv
+                                extra_paths = {
+                                    vim.fn.expand("$VIRTUAL_ENV/lib/python3.11/site-packages")
+                                },
+                            },
+                        },
 					},
 				},
 			})
