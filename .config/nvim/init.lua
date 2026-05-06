@@ -4,6 +4,9 @@ require("options")
 --[[ Custom keymaps ]]
 require("remap")
 
+--[[ Custom autocmds]]
+require("autocmds")
+
 
 --[[ Lazy - plugin manager ]]
 -- Bootstrap lazy.nvim
