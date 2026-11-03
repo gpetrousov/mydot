@@ -1,6 +1,0 @@
-[user]
-	name = Ioannis Petrousov
-	email = petrousov@gmail.com
-
-[url "git@gitlab.com:"]
-	insteadOf = https://gitlab.com/
