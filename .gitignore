@@ -14,3 +14,4 @@ id_rsa*
 
 # Ignore manifest tracking
 manifest.json
+.aider*
