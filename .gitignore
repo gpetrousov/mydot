@@ -1,3 +1,13 @@
 .mydot
 private.zsh
 pudb.cfg
+
+# Secrets and OS generated
+hosts.yml
+*.key
+*.pem
+id_rsa*
+.netrc
+.env
+.DS_Store
+.stow-local-ignore
