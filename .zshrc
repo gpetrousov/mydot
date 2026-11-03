@@ -108,14 +108,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 # Enable kubectl autocomplete
 [[ /bin/kubectl ]] && source <(kubectl completion zsh)
 
-# pyenv config
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# pyenv config for pyenv-virtualenv
-eval "$(pyenv virtualenv-init -)"
-
 # Go config
 export GOPATH=$HOME/go
 export PATH="$P$GOPATH/bin:$PATH"
@@ -138,3 +130,7 @@ export QSYS_ROOTDIR="/var/tmp/pamac-build-master/quartus-free/pkg/quartus-free-q
 
 # Alternative QT platform backend
 export QT_QPA_PLATFORM=xcb
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/master/.local/bin:$PATH"
