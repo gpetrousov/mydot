@@ -11,3 +11,6 @@ id_rsa*
 .env
 .DS_Store
 .stow-local-ignore
+
+# Ignore manifest tracking
+manifest.json
