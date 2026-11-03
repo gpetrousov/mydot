@@ -201,7 +201,11 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # Move the currently focused workspace into primary output
-bindsym $mod+p move workspace to output DP-1
+# bindsym $mod+p move workspace to output DP-1
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -311,6 +315,14 @@ bindsym $mod+0 exec $powermenu
 # Manual lock
 set $manlock exec bash $HOME/.config/sway/manlock.sh
 bindsym $mod+9 exec $manlock
+
+################################################################################################
+
+#####################################################################################################################
+#################                          cursor settings                                          #################
+#####################################################################################################################
+# Changing cursor settings requires configuring each DE. This bypasses it.
+seat * xcursor_theme Adwaita 28
 
 ################################################################################################
 
