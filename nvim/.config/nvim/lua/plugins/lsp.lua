@@ -12,7 +12,7 @@ return {
 				ensure_installed = {
 					-- Install more language servers here
 					"lua_ls",
-					"pylsp",
+					"pyright",
 					"gopls",
 					"terraformls",
 					"html",
@@ -59,24 +59,9 @@ return {
 				on_attach = on_attach,
 			})
 
-			require("lspconfig").pylsp.setup({
+			require("lspconfig").pyright.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            pycodestyle = {
-                                maxLineLength = 120,
-                            },
-                            jedi = {
-                                -- This helps pylsp find the libraries in your active pyenv
-                                extra_paths = {
-                                    vim.fn.expand("$VIRTUAL_ENV/lib/python3.11/site-packages")
-                                },
-                            },
-                        },
-					},
-				},
 			})
 
 			require("lspconfig").gopls.setup({
