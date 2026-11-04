@@ -18,4 +18,4 @@ manifest.json
 # Ignore aider metas
 .aider.chat.history.md
 .aider.input.history
-.aider.tags.cache
+.aider.tags.cache.v4/
