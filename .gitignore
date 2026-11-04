@@ -14,4 +14,8 @@ id_rsa*
 
 # Ignore manifest tracking
 manifest.json
-.aider*
+
+# Ignore aider metas
+.aider.chat.history.md
+.aider.input.history
+.aider.tags.cache
