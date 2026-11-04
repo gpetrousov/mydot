@@ -59,9 +59,38 @@ return {
 				on_attach = on_attach,
 			})
 
+			local function get_python_path(workspace)
+				-- 1. Check if an active virtual environment is set in the shell (e.g. VIRTUAL_ENV)
+				if vim.env.VIRTUAL_ENV then
+					local env_path = vim.fs.joinpath(vim.env.VIRTUAL_ENV, "bin", "python")
+					if vim.uv.fs_stat(env_path) then
+						return env_path
+					end
+				end
+
+				-- 2. Look for project-local virtual environments (.venv or venv) in workspace or upward
+				if workspace then
+					local venv = vim.fs.find({ ".venv", "venv" }, { path = workspace, upward = true, type = "directory" })[1]
+					if venv then
+						local venv_python = vim.fs.joinpath(venv, "bin", "python")
+						if vim.uv.fs_stat(venv_python) then
+							return venv_python
+						end
+					end
+				end
+
+				-- 3. Fallback to system python3 or default python
+				return vim.fn.exepath("python3") ~= "" and vim.fn.exepath("python3") or "python"
+			end
+
 			require("lspconfig").pyright.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				before_init = function(_, config)
+					config.settings = config.settings or {}
+					config.settings.python = config.settings.python or {}
+					config.settings.python.pythonPath = get_python_path(config.root_dir)
+				end,
 			})
 
 			require("lspconfig").gopls.setup({
