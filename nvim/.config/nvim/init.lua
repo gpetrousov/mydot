@@ -1,3 +1,22 @@
+-- 1. Self-Bootstrapping Python Provider
+local provider_dir = vim.fn.expand("~/.local/share/nvim/python-provider")
+local python_provider = provider_dir .. "/bin/python"
+
+-- If the python binary doesn't exist, create the venv and install pynvim
+if not vim.uv.fs_stat(python_provider) then
+    vim.notify("Bootstrapping Neovim Python provider via uv...", vim.log.levels.INFO)
+    vim.fn.system({ "uv", "venv", provider_dir })
+    vim.fn.system({ "uv", "pip", "install", "--python", python_provider, "pynvim" })
+end
+
+-- Bind the isolated provider
+vim.g.python3_host_prog = python_provider
+
+-- Disable unused providers for faster startup
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
+
 --[[ Migration commands from vimscript ]]
 require("options")
 
