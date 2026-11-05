@@ -39,6 +39,7 @@ return {
             "python",
             "markdown",
             "markdown_inline",
+            "mermaid",
             "terraform",
         },
         sync_install = false,
