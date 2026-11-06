@@ -54,11 +54,6 @@ return {
 				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Go to next diagnostic" })
 			end
 
-			require("lspconfig").lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
 			local function get_python_path(workspace)
 				-- 1. Check if an active virtual environment is set in the shell (e.g. VIRTUAL_ENV)
 				if vim.env.VIRTUAL_ENV then
@@ -83,7 +78,14 @@ return {
 				return vim.fn.exepath("python3") ~= "" and vim.fn.exepath("python3") or "python"
 			end
 
-			require("lspconfig").pyright.setup({
+			-- Modern Neovim 0.11+ / 0.12+ LSP configuration using vim.lsp.config & vim.lsp.enable
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			vim.lsp.enable("lua_ls")
+
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				before_init = function(_, config)
@@ -92,9 +94,11 @@ return {
 					config.settings.python.pythonPath = get_python_path(config.root_dir)
 				end,
 			})
+			vim.lsp.enable("pyright")
 
-			require("lspconfig").gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
+				on_attach = on_attach,
 				settings = {
 					gopls = {
 						analyses = {
@@ -105,16 +109,25 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable("gopls")
 
-			require("lspconfig").html.setup({
+			vim.lsp.config("html", {
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
+			vim.lsp.enable("html")
 
-			require("lspconfig").jinja_lsp.setup({
+			vim.lsp.config("jinja_lsp", {
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
+			vim.lsp.enable("jinja_lsp")
 
-			require("lspconfig").terraformls.setup({})
+			vim.lsp.config("terraformls", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			vim.lsp.enable("terraformls")
 
 			-- Shift+k for definition+docs
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
