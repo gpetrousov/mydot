@@ -39,6 +39,7 @@ return {
             "python",
             "markdown",
             "markdown_inline",
+            "make",
             "mermaid",
             "terraform",
         },

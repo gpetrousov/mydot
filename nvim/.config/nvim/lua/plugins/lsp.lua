@@ -17,6 +17,7 @@ return {
 					"terraformls",
 					"html",
 					"jinja_lsp",
+					"autotools_ls",
                     "rust_analyzer"
 				},
 			})
@@ -128,6 +129,21 @@ return {
 				on_attach = on_attach,
 			})
 			vim.lsp.enable("terraformls")
+
+			vim.lsp.config("autotools_ls", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			vim.lsp.enable("autotools_ls")
+
+			vim.lsp.config("make_ls", {
+				cmd = { "make-ls" },
+				filetypes = { "make" },
+				root_markers = { "Makefile", "makefile", "GNUmakefile", ".git" },
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			vim.lsp.enable("make_ls")
 
 			-- Shift+k for definition+docs
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
