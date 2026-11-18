@@ -134,3 +134,6 @@ export QT_QPA_PLATFORM=xcb
 
 # Added by Antigravity CLI installer
 export PATH="/home/master/.local/bin:$PATH"
+
+# Obsidian vault setup
+VAULT="$HOME/dev/second-brain"

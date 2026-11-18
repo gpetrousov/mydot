@@ -43,3 +43,16 @@ usb_safe_remove() {
 tfstruct() {
   touch {provider.tf,variables.tf,outputs.tf,main.tf,values.tfvars}
 }
+
+# My LLM wiki setup
+# llmwiki <note.md> == session that can edit only the active note
+# llmwiki           == read-only session
+llmwiki() {
+  if [[ -n "$1" ]]; then
+    local target="${1:A}"   # absolute path, works from any directory
+    [[ -f "$target" ]] || { echo "No such note: $1"; return 1; }
+    (cd "$VAULT" && WIKI_TARGET="$target" claude "Target note: $target. Read it, then wait for my instructions.")
+  else
+    (cd "$VAULT" && claude)
+  fi
+}
